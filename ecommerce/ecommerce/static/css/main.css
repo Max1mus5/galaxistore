@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif ;
+}
+
+.navbar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    padding: 0px !important;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    position: sticky !important;
+    top: 0px;
+}
+
+.navbarImg img{
+    width: 100%;
+    height: auto;
+    border-radius: 0px 0px 35px 0;
+}
+
+.navbarImg{
+    max-width: 150px; 
+}
+
+.navbarTags{
+    display: flex;
+    flex-direction: row;
+    min-width: 50%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 15px;
+}
+
+.navbarTagsCategories{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 400px;
+    font-weight: bold; 
+}
+
+.navbarTagsCategories a{
+    text-decoration: none;
+    color: black;
+}
+
+a {
+    transition: all 0.3s ease;
+}
+a:hover{
+    transform: scale(1.1);
+    font-weight: bold;
+
+}
+
+.navbarTagsUser {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.navbarTagsUser button {
+    border: none;
+    padding: 5px 10px;
+    background-color: transparent;
+}
+
+button.buttonUser {
+    padding-bottom: 8px;
+}
+
+.navbarMobile,
+.navbarTagsCategoriesMobile {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .navbarTagsCategories {
+        display: none;
+        position: relative;
+    }
+
+    .navbarTagsCategoriesMobile {
+        animation: slideDown 0.3s ease forwards; 
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 100%; 
+        width: 100%; 
+        max-width: 100px;
+        min-width: 100px;
+        background-color: gray;
+        border-radius: 35px 0px 35px 35px;
+        align-items: center;
+        right: 0;
+    }
+
+    .navbarTagsCategoriesMobile.show {
+        animation: slideDown 0.3s ease forwards; 
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        max-width: 100px;
+        min-width: 100px;
+        background-color: gray;
+        border-radius: 35px 0px 35px 35px;
+        align-items: center;
+        top: calc(100% + -30px);
+        left: calc(100% + -132px);  
+        overflow: hidden;
+    }
+    
+@keyframes slideDown {
+        from {
+            height: 1px; /* Comenzar desde arriba */
+        }
+        to {
+            height:200%; /* Desplazarse hacia abajo */
+        }
+    }
+
+    .navbarTagsCategoriesMobile.show a {
+        color: white;
+        padding: 10px;
+        text-decoration: none;
+    }
+
+    .navbarTags {
+        min-width: 100px;
+    }
+
+    .navbarMobile {
+        display: flex;
+        position: relative; 
+    }
+}
+
+
+
+@media screen and (max-width: 360px){
+    .navbarImg{
+        max-width: 100px;
+    }
+    
+}
+
+
+.dashboardContainer {
+    padding: 20px;
+}
+
+.dashboardHeader {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.productContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 20px;
+    justify-items: center;
+}
+
+.product {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.product:hover{
+    box-shadow: 10px 5px 10px 5px rgba(0, 0, 0, 0.3);
+
+}
+.productImg img {
+    width: 100%;
+    height: auto;
+}
+
+.productName {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.productBuyDetails {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.productPrice {
+    font-size: 16px;
+}
+
+.productAddCar button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .productContainer {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .productContainer {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+}
+
+
+
+/* scroll bar styles */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #cdae00;
+    border-radius: 35px;
+}
