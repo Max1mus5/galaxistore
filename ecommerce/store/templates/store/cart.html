@@ -2,6 +2,70 @@
 {% load static %}
 {% block content %}
 
-<h3>cart</h3>
+<!-- flecha para retroceder -->
+<div class="backAndBuy">
+ <a href="/"><button class="backToStoreButton" title="Seguir Comprando"><span class="material-symbols-outlined">
+    arrow_back_ios
+    </span></button></a>
+</div>
+
+<!-- checkout o realizar compra -->
+<div class="checkoutContainer">
+ <div class="total">
+    <p class="totalPriceOfPurchase">Total:$ {{ total }}</p>
+ </div>
+ <div class="checkoutButton">
+    <a href="http://127.0.0.1:8000/checkout"><button class="checkoutButton" title="Comprar"><span class="material-symbols-outlined">
+      shopping_cart
+      </span> Comprar</button></a>
+ </div>
+</div>
+
+<!-- lista de elementos en el carrito -->
+<div class="cartHeader">
+ <div class="totalAndPrice"></div>
+ <!-- tabla para lista en el carrito, el encabeza es "item" "price" "quantity" "total" -->
+ <table class="cartTable">
+    <thead>
+      <tr>
+        <th class="itemContainerHeader">Item</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr> 
+    </thead>
+    <tbody>
+      {% if items_en_carrito %}
+          {% for item in items_en_carrito %}
+            <tr>
+              <td>
+                <div class="cartItem">
+                  <div class="cartItemImg"><img src="{{ item.imagen }}" alt="{{ item.nombre }}" /></div>
+                  <div class="cartItemName">{{ item.nombre }}</div>
+                </div>
+              </td>
+              <td class="cartItemPrice">{{ item.precio }}</td>
+              <td>
+                <div class="cartItemQuantity">
+                  <button class="cartItemQuantityButton" title="Disminuir Cantidad"><span class="material-symbols-outlined">
+                    remove
+                  </span></button>
+                  <span class="cartItemQuantityNumber">{{ item.cantidad }}</span>
+                  <button class="cartItemQuantityButton" title="Aumentar Cantidad"><span class="material-symbols-outlined">
+                    add
+                  </span></button>
+                </div>
+              </td>
+              <td class="cartItemTotal">{{ item.total }}</td>
+            </tr>
+          {% endfor %}
+      {% else %}
+          <tr>
+            <td colspan="4">No tienes Items en carrito</td>
+          </tr>
+      {% endif %}
+     </tbody>
+ </table>
+</div>
 
 {% endblock content %}

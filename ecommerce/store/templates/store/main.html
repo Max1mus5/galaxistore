@@ -19,28 +19,9 @@
 </head>
 <body>
     <nav class="navbar">
-        <!-- <ul>
-            <li class="app-name">
-                <a href="{% url 'store' %}">GALAXYSTORE</a>
-            </li>
-            <li>
-                <a href="{% url 'store' %}" class="nav-items">Store</a>
-            </li>
-        </ul>
-        <div class="cart-container">
-            <a href="#" class="button button-login">Login</a>
-            <a href="{% url 'cart' %}">
-                <img id="cart-icon" src="{% static 'images/cart.svg' %}" alt="cart">
-            </a>
-            <p id="cart-total">0</p>
-        </div> -->
-       
-
         <div class="navbarImg">
-            <img src="{% static 'images/logo.png'%}" alt="">
+            <a href="http://127.0.0.1:8000/"><img src="{% static 'images/logo.png'%}" alt=""></a> <!-- lleva a la PAGINA DE INICO -->
         </div>
-
-    
         <div class="navbarTags">
             <div class="navbarTagsCategories">
                 <a href="https://github.com/DMGochoa/Frontend-Course/tree/main/ecommerce/store" target="_blank">Dirección</a>
@@ -49,9 +30,9 @@
                 <a href="#">Moda</a>
             </div>
             <div class="navbarTagsUser">
-                <button  class="buttonCart" title="ver carrito"><span class="material-symbols-outlined navbarTagsUserIcon">
+                <a href="http://127.0.0.1:8000/cart/"><button class="buttonCart" title="ver carrito"><span class="material-symbols-outlined navbarTagsUserIcon">
                     shopping_cart
-                    </span></button>
+                    </span></button></a>
                 <button class="buttonUser">
                     <svg class="navbarTagsUserIcon" width="28px" height="28px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="24" height="24" fill="white"/>
@@ -74,132 +55,14 @@
             </div>  
             
         </div>
-        
-       
     </nav>
+    
 
-    <div class="dashboardContainer">
-        <div class="dashboardHeader">Inicio>Ropa</div>
-        <div class="productContainer">
-            
-            <div class="product">
-                <div class="productImg">
-                 <img src="{% static 'images/buzo.png' %}" alt="buzo" /></div>
-                <div class="productName">NOMBRE DE PRODUCTO</div>
-                <div class="productBuyDetails">
-                    <div class="productPrice">PRECIO</div>
-                    <div class="productAddCar">
-                        <Button>Añadir AL CARRITO</Button>
-                    </div>
-                 </div>
-            </div>
+    {% block content %}
+    {% endblock content %}
+    
+  
 
-            <div class="product">
-                <div class="productImg">
-                 <img src="{% static 'images/buzo.png' %}" alt="buzo" /></div>
-                <div class="productName">NOMBRE DE PRODUCTO</div>
-                <div class="productBuyDetails">
-                    <div class="productPrice">PRECIO</div>
-                    <div class="productAddCar">
-                        <Button>Añadir AL CARRITO</Button>
-                    </div>
-                 </div>
-            </div>
-            <div class="product">
-                <div class="productImg">
-                 <img src="{% static 'images/buzo.png' %}" alt="buzo" /></div>
-                <div class="productName">NOMBRE DE PRODUCTO</div>
-                <div class="productBuyDetails">
-                    <div class="productPrice">PRECIO</div>
-                    <div class="productAddCar">
-                        <Button>Añadir AL CARRITO</Button>
-                    </div>
-                 </div>
-            </div>
-            <div class="product">
-                <div class="productImg">
-                 <img src="{% static 'images/buzo.png' %}" alt="buzo" /></div>
-                <div class="productName">NOMBRE DE PRODUCTO</div>
-                <div class="productBuyDetails">
-                    <div class="productPrice">PRECIO</div>
-                    <div class="productAddCar">
-                        <Button>Añadir AL CARRITO</Button>
-                    </div>
-                 </div>
-            </div>
-            <div class="product">
-                <div class="productImg">
-                 <img src="{% static 'images/buzo.png' %}" alt="buzo" /></div>
-                <div class="productName">NOMBRE DE PRODUCTO</div>
-                <div class="productBuyDetails">
-                    <div class="productPrice">PRECIO</div>
-                    <div class="productAddCar">
-                        <Button>Añadir AL CARRITO</Button>
-                    </div>
-                 </div>
-            </div>
-            <div class="product">
-                <div class="productImg">
-                 <img src="{% static 'images/buzo.png' %}" alt="buzo" /></div>
-                <div class="productName">NOMBRE DE PRODUCTO</div>
-                <div class="productBuyDetails">
-                    <div class="productPrice">PRECIO</div>
-                    <div class="productAddCar">
-                        <Button>Añadir AL CARRITO</Button>
-                    </div>
-                 </div>
-            </div>
-            <div class="product">
-                <div class="productImg">
-                 <img src="{% static 'images/buzo.png' %}" alt="buzo" /></div>
-                <div class="productName">NOMBRE DE PRODUCTO</div>
-                <div class="productBuyDetails">
-                    <div class="productPrice">PRECIO</div>
-                    <div class="productAddCar">
-                        <Button>Añadir AL CARRITO</Button>
-                    </div>
-                 </div>
-            </div>
-            <div class="product">
-                <div class="productImg">
-                 <img src="{% static 'images/buzo.png' %}" alt="buzo" /></div>
-                <div class="productName">NOMBRE DE PRODUCTO</div>
-                <div class="productBuyDetails">
-                    <div class="productPrice">PRECIO</div>
-                    <div class="productAddCar">
-                        <Button>Añadir AL CARRITO</Button>
-                    </div>
-                 </div>
-            </div>
-            <div class="product">
-                <div class="productImg">
-                 <img src="{% static 'images/buzo.png' %}" alt="buzo" /></div>
-                <div class="productName">NOMBRE DE PRODUCTO</div>
-                <div class="productBuyDetails">
-                    <div class="productPrice">PRECIO</div>
-                    <div class="productAddCar">
-                        <Button>Añadir AL CARRITO</Button>
-                    </div>
-                 </div>
-            </div>
-            <div class="product">
-                <div class="productImg">
-                 <img src="{% static 'images/buzo.png' %}" alt="buzo" /></div>
-                <div class="productName">NOMBRE DE PRODUCTO</div>
-                <div class="productBuyDetails">
-                    <div class="productPrice">PRECIO</div>
-                    <div class="productAddCar">
-                        <Button>Añadir AL CARRITO</Button>
-                    </div>
-                 </div>
-            </div>
-
-          
-
-
-            
-        </div>
-    </div>
     <script>
         document.querySelector('.navbarMorebutton').addEventListener('click', function() {
             var tagsContainer = document.querySelector('.navbarTagsCategoriesMobile');
