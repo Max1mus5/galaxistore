@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <title>Login Star Wars</title>
+</head>
+<body>
+    <div class="loginContent">
+        <div class="loginForm">
+            <form method="post">
+                <h1>Login</h1>
+                <input type="text" placeholder="Username" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <p>O <a href="#">Register</a> Si aún no tienes una Cuenta</p>
+                 
+            </form>
+        </div>
+        <div class="star-wars">
+            
+
+            <div class="crawl" id="5" >
+                <h1>Episodio V</h1>
+                <p>Es una época oscura para la 
+                    Rebelión. Aunque la Estrella 
+                    de la Muerte ha sido 
+                    destruida, las tropas 
+                    imperiales han obligado a las
+                    fuerzas rebeldes a dejar sus
+                    sus bases secretas y las han
+                    perseguido a través de la 
+                    galaxia.</p>
+                <p>En una fuga de la temida Flota
+                    Imperial, un grupo de guerreros 
+                    rebeldes liderado por Luke 
+                    Skywalker ha establecido una 
+                    nueva base secreta en la
+                    remota tierra congelada de 
+                    Hoth.</p>
+                <p>Darth Vader, Señor del mal,
+                    obsesionado con encontrar 
+                    al joven Skywalker, ha 
+                    despachado al lejano espacio 
+                    miles de sondas a control
+                    remoto....
+                    </p>
+        </div>
+           
+            <script src="{% static 'js/login.js' %}"></script>
+
+            
+        </div>
+    </div>
+
+</body>
+</html>

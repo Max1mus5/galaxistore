@@ -224,7 +224,12 @@ button.buttonUser {
 
 @media screen and (max-width: 480px) {
     .productContainer {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    div#advertisementNotRegistred, div#advertisementRegistredmany{
+        font-size: 12px;
+        text-overflow: ellipsis;
     }
 }
 
@@ -374,38 +379,6 @@ button.backToStoreButton{
 
 
 /* checkout Styles */
-
-/* dame los estilos para:
-
-<div class="checkoutContainer">
-  <div class="paymentInformation">
-     <div class="clientInfo">
-      <input type="text" placeholder="Nombre" class="clientInfo"/>
-      <input type="text" placeholder="Email"class="clientInfo"/>
-     </div>
-     <div class="clientComplementaryInfo">
-      <h2>Informacion de Compra</h2>
-      <input type="text" placeholder="Pais" class="clientInfo"/>
-      <input type="text" placeholder="Estado / Municipio" class="clientInfo"/>
-      <input type="text" placeholder="Ciudad" class="clientInfo"/>
-      <input type="text" placeholder="Dirección" class="clientInfo"/>
-     </div>
-     <button class="finishShipingButton">Continue</button>
-  </div>
-  <div class="ordersummary">
-    <a href="http://127.0.0.1:8000/cart/"><button><span class="material-symbols-outlined">
-      arrow_back_ios
-      </span> Volver Al Carrito</button></a>
-    <div class="totalPurchaseFinal">
-      <h1>Resumen de Orden</h1>  
-       <div class="summaryInfo">
-          <p class="summaryInfoDate"> Fecha: </p>
-          <p class="summaryInfoTotal">Total: </p>
-       </div>
-    </div>
-  </div>
-</div>*/
-
 .checkoutContainer {
     padding: 0 60px !important;
     display: flex;

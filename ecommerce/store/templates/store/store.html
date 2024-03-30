@@ -1,6 +1,13 @@
 {% extends 'store/main.html' %}
 {% load static %}
 {% block content %}
+<div id="advertisementNotRegistred" style="display: none; background-color: rgb(104, 4, 4); color: white; padding: 10px; position: fixed; top: 15%; left: 50%; transform: translate(-50%, -50%); z-index: 9999;">
+  Debes iniciar sesión o registrarte para realizar esta acción. 💀
+</div>
+
+<div id="advertisementNotRegistredmany" style="display: none; background-color: rgb(166, 0, 0); color: white; padding: 10px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999;">
+  Amigo, Registrate... En serio... 💀
+</div>
 
 <div class="dashboardContainer">
   <div class="dashboardHeader">Inicio>Ropa</div>
@@ -14,35 +21,14 @@
         <div class="productBuyDetails">
           <div class="productPrice">${{ producto.precio }}</div>
           <div class="productAddCar">
-            <button data-product="{{product.id}}" data-action="add" class="button-add update-cart" class="button-add update-cart addCartButton" data-producto-id="{{ producto.id }}"> <span class="material-symbols-outlined navbarTagsUserIcon">
-              shopping_cart
+            <button title="Añadir al Carrito" data-product="{{producto.id}}" data-action="add" class="button-add update-cart addCartButton"> <span class="material-symbols-outlined navbarTagsUserIcon">
+              add_shopping_cart
               </span> </button>
         </div>
         </div>
       </div>
     {% endfor %}
   </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var addCartButtons = document.querySelectorAll(".addCartButton");
-      
-      addCartButtons.forEach(function(button) {
-        button.addEventListener("click", function() {
-          var productId = this.getAttribute("data-producto-id");
-          var cartItems = JSON.parse(localStorage.getItem("cartItems")) || {}; 
-          if (!cartItems[productId]) {
-            cartItems[productId] = 0; 
-          }
-          cartItems[productId]++; 
-          localStorage.setItem("cartItems", JSON.stringify(cartItems)); 
-          console.log("Producto agregado al carrito con ID: " + productId);
-        });
-      });
-    });
-    </script>
-    
-    
 </div>
 
 {% endblock content %}

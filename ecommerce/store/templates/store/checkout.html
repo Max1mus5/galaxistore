@@ -1,33 +1,41 @@
 {% extends 'store/main.html' %}
 {% load static %}
 {% block content %}
-<a href="http://127.0.0.1:8000/cart/"><button class="backToCartButton"><span class="material-symbols-outlined">
+
+  <a href="http://127.0.0.1:8000/cart/"><button class="backToCartButton"><span class="material-symbols-outlined">
   arrow_back_ios
   </span> Volver Al Carrito</button></a>
-<div class="checkoutContainer">
+  <div class="checkoutContainer">
   <div class="ordersummary">
     <div class="totalPurchaseFinal">
       <h1>Resumen de Orden</h1>  
-       <div class="summaryInfo">
+        <div class="summaryInfo">
           <p class="summaryInfoDate"> Fecha: </p>
           <p class="summaryInfoTotal">Total: </p>
-       </div>
+        </div>
     </div>
   </div>
   <div class="paymentInformation">
-     <div class="clientInfo">
+      <div class="clientInfo">
       <input type="text" placeholder="Nombre" class="clientInfo"/>
       <input type="text" placeholder="Email"class="clientInfo"/>
-     </div>
-     <div class="clientComplementaryInfo">
+      </div>
+      <div class="clientComplementaryInfo">
       <h2>Informacion de Compra</h2>
       <input type="text" placeholder="Pais" class="clientInfo"/>
       <input type="text" placeholder="Estado / Municipio" class="clientInfo"/>
       <input type="text" placeholder="Ciudad" class="clientInfo"/>
       <input type="text" placeholder="Dirección" class="clientInfo"/>
-     </div>
-     <button class="finishShipingButton">Continue</button>
+      </div>
+      <button class="finishShipingButton">Continue</button>
   </div>
-  
-</div>
+  </div>
+
+<script type="text/javascript">
+    var shipping = '{{order.shipping}}';
+    var total = '{{order.get_cart_total}}';
+    const storeURL = "{% url 'store' %}";
+</script>
+<script src="{% static 'js/checkout.js' %}" defer></script>
+
 {% endblock content %}

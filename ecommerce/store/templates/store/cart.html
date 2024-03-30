@@ -12,7 +12,7 @@
 <!-- checkout o realizar compra -->
 <div class="checkoutContainer">
  <div class="total">
-    <p class="totalPriceOfPurchase">Total:$ {{ total }}</p>
+    <p class="totalPriceOfPurchase">Total: ${{order.get_cart_total|floatformat:2}}</p>
  </div>
  <div class="checkoutButton">
     <a href="http://127.0.0.1:8000/checkout"><button class="checkoutButton" title="Comprar"><span class="material-symbols-outlined">
@@ -35,30 +35,34 @@
       </tr> 
     </thead>
     <tbody>
-      {% if items_en_carrito %}
-          {% for item in items_en_carrito %}
-            <tr>
-              <td>
-                <div class="cartItem">
-                  <div class="cartItemImg"><img src="{{ item.imagen }}" alt="{{ item.nombre }}" /></div>
-                  <div class="cartItemName">{{ item.nombre }}</div>
-                </div>
-              </td>
-              <td class="cartItemPrice">{{ item.precio }}</td>
-              <td>
-                <div class="cartItemQuantity">
-                  <button class="cartItemQuantityButton" title="Disminuir Cantidad"><span class="material-symbols-outlined">
-                    remove
+      {% if items %}
+        {% for item in items %}
+          {% for producto in productos %}
+            {% if item.product_id == producto.id and item.quantity > 0 %}
+              <tr>
+                <td>
+                  <div class="cartItem">
+                  <div class="cartItemImg"><img src="{% static producto.imagen %}" alt="{{ item.nombre }}" /></div>
+                  <div class="cartItemName">{{ producto.nombre }}</div>
+                  </div>
+                </td>
+                <td class="cartItemPrice">${{ producto.precio|floatformat:2 }}</td>
+                <td>
+                  <div class="cartItemQuantity">
+                  <button data-product="{{producto.id}}" data-action="remove" class="update-cart cartItemQuantityButton" title="Disminuir Cantidad"><span class="material-symbols-outlined">
+                      remove
                   </span></button>
-                  <span class="cartItemQuantityNumber">{{ item.cantidad }}</span>
-                  <button class="cartItemQuantityButton" title="Aumentar Cantidad"><span class="material-symbols-outlined">
-                    add
+                  <span class="cartItemQuantityNumber"> {{ item.quantity }}</span>
+                  <button data-product="{{producto.id}}" data-action="add" class="update-cart cartItemQuantityButton" title="Aumentar Cantidad"><span class="material-symbols-outlined">
+                      add
                   </span></button>
-                </div>
-              </td>
-              <td class="cartItemTotal">{{ item.total }}</td>
-            </tr>
+                  </div>
+                </td>
+                <td class="cartItemTotal">${{ item.get_total|floatformat:2 }}</td>
+              </tr>
+            {% endif %}
           {% endfor %}
+        {% endfor %}
       {% else %}
           <tr>
             <td colspan="4">No tienes Items en carrito</td>
