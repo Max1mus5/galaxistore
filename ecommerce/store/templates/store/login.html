@@ -11,13 +11,13 @@
     <div class="loginContent">
         <div class="loginForm">
             <form method="post">
+                {% csrf_token %}
                 <h1>Login</h1>
-                <input type="text" placeholder="Username" required>
-                <input type="password" placeholder="Password" required>
+                {{ form.as_p }}
                 <button type="submit">Login</button>
-                <p>O <a href="#">Register</a> Si aún no tienes una Cuenta</p>
-                 
+                <p>O <a href="http://127.0.0.1:8000/signup/">Register</a> Si aún no tienes una Cuenta</p>
             </form>
+            
         </div>
         <div class="star-wars">
             
