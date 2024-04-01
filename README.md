@@ -8,9 +8,8 @@ GalaxyStore es una plataforma de comercio electrónico diseñada para la venta d
 
 - Registro de usuarios
 - Inicio de sesión de usuarios
-- Búsqueda y navegación de productos
+- Navegación de productos
 - Agregar productos al carrito de compras
-- Proceso de pago y checkout
 - Administración de productos y pedidos (para administradores)
 - Y más...
 
