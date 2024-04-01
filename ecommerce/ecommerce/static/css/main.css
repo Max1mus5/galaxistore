@@ -79,6 +79,21 @@ button.buttonUser {
     padding-bottom: 8px;
 }
 
+button.buttonUser{
+    display: flex;
+    flex-direction: row;
+    align-items: center;    
+    gap: 5px;
+    justify-content: center;
+}
+
+.userName{
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    font-style: italic;
+    
+}
+
 .navbarMobile,
 .navbarTagsCategoriesMobile {
     display: none;

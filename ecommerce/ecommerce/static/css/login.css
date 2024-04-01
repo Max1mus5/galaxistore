@@ -20,7 +20,6 @@ body::after{
 
 .loginContent{
     justify-content: space-around;
-
 }
 
 .loginForm{
@@ -38,6 +37,7 @@ a{
   font-weight: bold;
   color: #FFD700;
 }
+
 .star-wars {
   display: flex;
   justify-content: center;
@@ -114,4 +114,65 @@ button {
 button:hover {
  background-color: #FFA500; /* Color dorado más oscuro al pasar el cursor */
 }
+ 
+
+/* Media Query para pantallas con un ancho máximo de 768px */
+@media screen and (max-width: 768px) {
+  .loginForm {
+     top: 30px;
+     left: 50%;
+     transform: translateX(-50%);
+  }
+ 
+  .crawl {
+     margin-top: 200%;
+     animation: scroll 120s linear forwards;
+  }
+ 
+  form {
+     width: 80%;
+     padding: 15px;
+     z-index: 999 !important;
+     user-select: all;
+  }
+ 
+  input[type="text"],
+  input[type="password"] {
+     padding: 8px;
+  }
+ 
+  button {
+     width: 150px;
+  }
+ }
+ 
+ /* Media Query para pantallas con un ancho máximo de 480px */
+ @media screen and (max-width: 480px) {
+  .loginForm {
+     top: 20px;
+     left: 50%;
+     transform: translateX(-50%);
+  }
+ 
+  .crawl {
+     margin-top: 350%;
+     animation: scroll 120s linear forwards;
+     z-index: -999;
+  }
+ 
+  form {
+     width: 90%;
+     padding: 10px;
+     z-index: 999 !important;
+  }
+ 
+  input[type="text"],
+  input[type="password"] {
+     padding: 6px;
+  }
+ 
+  button {
+     width: 130px;
+  }
+ }
  

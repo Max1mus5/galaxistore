@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Error</title>
+    <link rel="stylesheet" href="{% static 'css/error.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/error.png' %}">
+
+    <script src="{% static 'js/error.js' %}"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            color: white;
+            font-family: 'Deathstar', sans-serif;
+        }
+
+        #crawl {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+
+        #crawl p {
+            font-size: 4rem;
+            text-align: center;
+            animation: starwars 30s linear infinite;
+            transform: rotateX(20deg);
+        }
+
+        @keyframes starwars {
+            0% { transform: rotateX(20deg) translateY(100%); }
+            100% { transform: rotateX(21deg) translateY(-100%); }
+        }
+
+        /* Estilos para el botón de regreso */
+        a {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        /* Estilos para el ícono de regreso */
+        a::before {
+            content: "←";
+            margin-right: 5px;
+        }
+
+        a:hover {
+            background-color: #444; /* Cambia el color de fondo al pasar el mouse */
+            transform: scale(1.1); /* Aumenta el tamaño del botón */
+        }                                                                                           
+        /* Estilos para el fondo de estrellas */
+        #field {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -3;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        /* Estilos para el overlay */
+        #overlay {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        /* Estilos para el texto con efecto de parpadeo */
+        #crawl p span {
+            font-size: 150%;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Estilos para la fuente Deathstar */
+        @font-face {
+            font-family: 'Deathstar';
+            src: url('https://cdn.designly.biz/fonts/deathstar/death_star-webfont.eot');
+            src: url('https://cdn.designly.biz/fonts/deathstar/death_star-webfont.eot?#iefix') format('embedded-opentype'),
+                 url('https://cdn.designly.biz/fonts/deathstar/death_star-webfont.woff2') format('woff2'),
+                 url('https://cdn.designly.biz/fonts/deathstar/death_star-webfont.woff') format('woff'),
+                 url('https://cdn.designly.biz/fonts/deathstar/deathstar.otf') format('opentype'),
+                 url('https://cdn.designly.biz/fonts/deathstar/death_star-webfont.svg') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <div id="field"></div>
+    <div id="crawl">
+        <p>
+            <span>Ha ocurrido un error. Por favor, intenta de nuevo.</span>
+        </p>
+    </div>
+    <div id="overlay"></div>
+    <a href="javascript:history.back()">Regresar</a>
+</body>
+</html>

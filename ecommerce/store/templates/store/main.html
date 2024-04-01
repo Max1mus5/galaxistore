@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1" />
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
-    <link rel="icon" href="{% static 'images/logo.png'}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/icon.png' %}">
     <!-- We will use bootstrap in some of out designs -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
@@ -16,40 +16,18 @@
 
     <script type="text/javascript">
         var user = '{{request.user}}';
-        // Luego de agregar los cambios de la solicitud de update vamos a solucionar el error
-        // POST http://127.0.0.1:8000/update_item/ 403 (Forbidden)
-        // updateUserOrder @ cart.js:29
-        // (anonymous) @ cart.js:15
-        // VM108:1  Uncaught (in promise) SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
-        // Para solucionar este error vamos a agregar el token de seguridad en el archivo main.html desde la
-        // documentacion oficial de django podemos leer lo que necesitamos para poder generar el token CSFR
-        //Función JavaScript para obtener el valor de una cookie específica
         function getToken(name) {
-            // Inicializa una variable para almacenar el valor de la cookie
             var cookieValue = null;
-            
-            // Comprueba si hay cookies en el documento
             if (document.cookie && document.cookie !== '') {
-                // Divide las cookies en un array de cookies individuales
                 var cookies = document.cookie.split(';');
-                
-                // Recorre el array de cookies
-                for (var i = 0; i < cookies.length; i++) {
-                    // Elimina los espacios en blanco al principio y al final de la cookie
+            for (var i = 0; i < cookies.length; i++) {
                     var cookie = cookies[i].trim();
-                    
-                    // Comprueba si la cookie comienza con el nombre que se busca
                     if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                        // Si se encuentra la cookie, decodifica su valor y lo almacena en cookieValue
                         cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                        
-                        // Rompe el bucle ya que se ha encontrado la cookie
                         break;
                     }
                 }
             }
-            
-            // Devuelve el valor de la cookie. Si no se encontró la cookie, el valor será null
             return cookieValue;
         }
         var csrftoken = getToken('csrftoken');
@@ -85,6 +63,9 @@
                             <rect width="24" height="24" fill="white"/>
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12ZM11.9999 6C9.79077 6 7.99991 7.79086 7.99991 10C7.99991 12.2091 9.79077 14 11.9999 14C14.209 14 15.9999 12.2091 15.9999 10C15.9999 7.79086 14.209 6 11.9999 6ZM17.1115 15.9974C17.8693 16.4854 17.8323 17.5491 17.1422 18.1288C15.7517 19.2966 13.9581 20 12.0001 20C10.0551 20 8.27215 19.3059 6.88556 18.1518C6.18931 17.5723 6.15242 16.5032 6.91351 16.012C7.15044 15.8591 7.40846 15.7251 7.68849 15.6097C8.81516 15.1452 10.2542 15 12 15C13.7546 15 15.2018 15.1359 16.3314 15.5954C16.6136 15.7102 16.8734 15.8441 17.1115 15.9974Z" fill="#00A3FF"/>
                         </svg>
+                        {% if user.is_authenticated %}
+                            <span class="userName">{{ user.get_username }}</span>
+                        {% endif %}
                     </button>
                     <div id="userActions" style="display: none;">
                         <a title="Cerrar Sesión" href="{% url 'user_logout' %}" id="logoutButton"><span class="material-symbols-outlined">
@@ -99,9 +80,7 @@
                             const logoutButton = document.getElementById('logoutButton');
                     
                             userButton.addEventListener('click', function () {
-                                // Verificar si el usuario está autenticado
                                 if (user === 'AnonymousUser') {
-                                    // Show the login advertisement for 2 seconds before redirecting
                                     var loginAd = document.getElementById('loginAdvertisement');
                                     loginAd.style.display = 'block';
                                     setTimeout(function() {
@@ -109,14 +88,11 @@
                                         window.location.href = '/login/';
                                     }, 2000);
                                 } else {
-                                    // Si el usuario está autenticado, mostrar el contenedor de acciones de usuario
                                     userActions.style.display = 'block';
                                 }
                             });
                     
-                            // Evento para cerrar sesión
                             logoutButton.addEventListener('click', function () {
-                                // Redirigir al usuario a la página de cierre de sesión
                                 window.location.href = '/logout/';
                             });
                         });

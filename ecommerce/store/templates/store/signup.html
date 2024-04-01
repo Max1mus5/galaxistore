@@ -1,16 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
 </head>
 <body>
-    <h1>Sign Up</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Sign Up</button>
-    </form>
-    <p>O <a href="{% url 'user_login' %}">Login</a> si ya tienes una Cuenta </p>
+    <div class="star-wars-container">
+        <h1 class="star-wars-title">Sign Up</h1>
+        <form method="post" class="star-wars-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="star-wars-button">Sign Up</button>
+        </form>
+        <p>O <a href="{% url 'user_login' %}" class="star-wars-link">Login</a> si ya tienes una Cuenta</p>
+    </div>
 </body>
 </html>

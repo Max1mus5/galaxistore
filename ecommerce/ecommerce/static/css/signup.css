@@ -1,0 +1,56 @@
+body {
+  background-color: #000000; /* Fondo oscuro */
+  color: #FFFFFF; /* Texto blanco */
+  font-family: 'Arial', sans-serif; /* Fuente futurista */
+}
+
+.star-wars-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.star-wars-title {
+  text-align: center;
+  color: #FFD700; /* Color dorado */
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.star-wars-form {
+  background-color: #222222; /* Fondo gris oscuro */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.star-wars-form input[type="text"],
+.star-wars-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+}
+
+.star-wars-button {
+  background-color: #FFD700; /* Color dorado */
+  color: #000000; /* Texto negro */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.star-wars-button:hover {
+  background-color: #D4AF37; /* Color dorado más oscuro */
+}
+
+.star-wars-link {
+  color: #FFD700; /* Color dorado */
+  text-decoration: none;
+}
+
+.star-wars-link:hover {
+  color: #D4AF37; /* Color dorado más oscuro */
+}
